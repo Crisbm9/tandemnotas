@@ -77,7 +77,9 @@ function showInfo(){
         let valor = localStorage[clave]
         console.log(valor)
         let elemento = `
-        <div class='lista-notas'>
+        <div id="${clave}" class='lista-notas'>
+        <button onclick='eliminarnota(${clave})' ><i class="bi bi-trash"></i></button>
+        <button onclick=editarnota() ><i class="bi bi-pencil-square"></i></button>
         ${valor}
         </div>
         `
@@ -90,4 +92,12 @@ function cleanInfo(){
     // Elimina todos los elementos
 localStorage.clear();
    showInfo();
+}
+
+function eliminarnota(clave){
+    localStorage.removeItem(clave);
+    showInfo()
+}
+function editarnota(){
+    localStorage.setItem(clave,valor)
 }
