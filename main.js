@@ -79,7 +79,7 @@ function showInfo(){
         let elemento = `
         <div id="${clave}" class='lista-notas'>
         <button onclick='eliminarnota(${clave})' ><i class="bi bi-trash"></i></button>
-        <button onclick=editarnota() ><i class="bi bi-pencil-square"></i></button>
+        <button onclick=editarnota(${clave}) ><i class="bi bi-pencil-square"></i></button>
         ${valor}
         </div>
         `
@@ -98,6 +98,7 @@ function eliminarnota(clave){
     localStorage.removeItem(clave);
     showInfo()
 }
-function editarnota(){
-    localStorage.setItem(clave,valor)
+function editarnota(clave){
+    const elemento=document.getElementById(clave)
+    elemento.contentEditable=true
 }
